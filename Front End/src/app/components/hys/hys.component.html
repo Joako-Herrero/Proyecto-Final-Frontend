@@ -1,0 +1,272 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-2">
+      <button type="button" routerLink="/newskill" class="btn btn-light" *ngIf="isLogged">Nueva Skill</button>
+    </div>
+
+    <h2>Hard Skills</h2>
+    <div class="col-sm-4 text-center" *ngFor="let skill of skill">
+      <div class="circle" id="circle1">
+        <circle-progress 
+          [imageSrc]="''" 
+          [showSubtitle]="true"
+          [subtitle]="(skill.nombre)" 
+          [showImage]="false" 
+          [imageHeight]="100"
+          [imageWidth]="110" 
+          [percent]="(skill.porcentaje)" 
+          [radius]="100" 
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="0"
+          [outerStrokeColor]="'#78C000'" 
+          [innerStrokeColor]="'#C7E596'" 
+          [animation]="true" 
+          [animationDuration]="100"
+          [subtitleFontSize]="'1em'"
+          ></circle-progress>
+
+        <td *ngIf="isLogged">
+          <button class="btn btn-light" routerLink="/editskill/{{skill.id}}">
+            <i class="bi bi-pen-fill"></i>
+            Editar
+          </button>
+
+        </td>
+        <td *ngIf="isLogged">
+          <button class="btn btn-light" (click)="delete(skill.id)">
+            <i class="bi bi-trash3-fill"></i>
+            Borrar
+          </button>
+        </td>
+      </div>
+    </div>
+  </div>  
+</div>
+    <!--<div class="col-sm-4 text-center">
+      <div class="circle" id="circle2">
+          <circle-progress
+          [imageSrc]="'../../../assets/logo-css.png'"
+          [showImage]="true"
+          [imageHeight]="100"
+          [imageWidth]="80"
+          [percent]="70"
+          [radius]="100"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="0"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="100"
+          [subtitle]="'CSS'"
+          [subtitleFontSize]="'1em'"
+        ></circle-progress>
+      </div>
+    </div>
+    <div class="col-sm-4 text-center">
+      <div class="circle" id="circle3">
+          <circle-progress
+          [imageSrc]="'../../../assets/logo-bootstrap.png'"
+          [showImage]="true"
+          [imageHeight]="100"
+          [imageWidth]="120"
+          [percent]="35"
+          [radius]="100"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="0"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="100"
+          [subtitle]="'CSS'"
+          [subtitleFontSize]="'1em'"
+        ></circle-progress>
+      </div>
+    </div>
+    <div class="col-sm-4 text-center">
+      <div class="circle" id="circle3">
+          <circle-progress
+          [imageSrc]="'../../../assets/logo-javascript.png'"
+          [showImage]="true"
+          [imageHeight]="80"
+          [imageWidth]="90"
+          [percent]="65"
+          [radius]="100"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="0"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="100"
+          [subtitle]="'CSS'"
+          [subtitleFontSize]="'1em'"
+        ></circle-progress>
+      </div>
+    </div>
+    <div class="col-sm-4 text-center">
+      <div class="circle" id="circle3">
+          <circle-progress
+          [imageSrc]="'../../../assets/logo-typescript.png'"
+          [showImage]="true"
+          [imageHeight]="80"
+          [imageWidth]="80"
+          [percent]="10"
+          [radius]="100"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="0"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="100"
+          [subtitle]="'CSS'"
+          [subtitleFontSize]="'1em'"
+        ></circle-progress>
+      </div>
+    </div>
+    
+    <div class="col-sm-4 text-center">
+      <div class="circle" id="circle3">
+          <circle-progress
+          [imageSrc]="'../../../assets/logo-java.png'"
+          [showImage]="true"
+          [imageHeight]="100"
+          [imageWidth]="120"
+          [percent]="20"
+          [radius]="100"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="0"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="100"
+          [subtitle]="'CSS'"
+          [subtitleFontSize]="'1em'"
+        ></circle-progress>
+      </div>
+    </div>
+    <div class="col-sm-4 text-center">
+      <div class="circle" id="circle3">
+          <circle-progress
+          [imageSrc]="'../../../assets/logo-spring.png'"
+          [showImage]="true"
+          [imageHeight]="90"
+          [imageWidth]="100"
+          [percent]="3"
+          [radius]="100"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="0"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="100"
+          [subtitle]="'CSS'"
+          [subtitleFontSize]="'1em'"
+        ></circle-progress>
+      </div>
+     
+    </div>
+  </div>
+</div>
+     ///////////////-->
+
+
+    <!--SoftSkill
+
+<div class="container">
+  <div class="row">
+    <h2>Soft Skills</h2>
+    <div class="col-sm-4 text-center">
+      <div class="circle" id="circle1">
+        <circle-progress
+        [percent]="80"
+        [radius]="100"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="0"
+        [outerStrokeColor]="'#78C000'"
+        [innerStrokeColor]="'#C7E596'"
+        [animation]="true"
+        [animationDuration]="100"
+        [subtitle]="'Gestion del Tiempo'"
+        [subtitleFontSize]="'1em'"
+      ></circle-progress>
+      </div>
+    </div>
+    <div class="col-sm-4 text-center">
+      <div class="circle" id="circle2">
+          <circle-progress
+         
+          [percent]="70"
+          [radius]="100"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="0"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="100"
+          [subtitle]="'Trabajo en Equipo'"
+          [subtitleFontSize]="'1em'"
+        ></circle-progress>
+      </div>
+    </div>
+    <div class="col-sm-4 text-center">
+      <div class="circle" id="circle3">
+          <circle-progress
+          
+          [percent]="55"
+          [radius]="100"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="0"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="100"
+          [subtitle]="'Comunicacion Efectiva'"
+          [subtitleFontSize]="'1em'"
+        ></circle-progress>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h2>Idiomas</h2>
+    <div class="col-sm-4 text-center">
+      <div class="circle" id="circle1">
+        <circle-progress
+        [title]="'Español'"
+        [percent]="100"
+        [showUnits]="false"
+        [radius]="100"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="0"
+        [outerStrokeColor]="'#78C000'"
+        [innerStrokeColor]="'#C7E596'"
+        [animation]="true"
+        [animationDuration]="100"
+        [subtitle]="'Español - Nativo'"
+        [subtitleFontSize]="'1em'"
+      ></circle-progress>
+      </div>
+    </div>
+    <div class="col-sm-4 text-center">
+      <div class="circle" id="circle2">
+          <circle-progress
+          [title]="'Ingles'"
+          [showUnits]="false"
+          [percent]="50"
+          [radius]="100"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="0"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="100"
+          [subtitle]="'Intermedio'"
+          [subtitleFontSize]="'1em'"
+        ></circle-progress>
+      </div>
+    </div>
+    
+  </div>
+</div> -->
