@@ -36,7 +36,7 @@ export class EditAcercadeComponent implements OnInit {
       data =>{
         this.router.navigate(['']);
       }, err =>{
-        alert("Falló");
+        alert("Falló editacercade");
         this.router.navigate(['']);
       }
     )
